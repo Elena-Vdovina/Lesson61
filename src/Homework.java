@@ -37,6 +37,10 @@ public class Homework {
     System.out.print("Введите проходной балл ");
     int score=Integer.parseInt(br.readLine());
 
-
+    students.stream()
+        .filter(x->x.getScore()>=score)
+        .sorted((o1, o2) -> -o1.compareTo(o2))
+        .limit(10)
+        .forEach(System.out::println);
   }
 }
